@@ -10,10 +10,8 @@ let Cid;
 const db = knex({
   client: "pg",
   connection: {
-    host: "postgresql-flexible-86438",
-    user: "postgres",
-    password: "Jon1311",
-    database: "fincalc"
+    host: "process.env.DATABASE_URL",
+    ssl: true
   }
 });
 
