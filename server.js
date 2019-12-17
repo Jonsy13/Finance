@@ -65,6 +65,7 @@ const database = {
 };
 
 app.get("/", (req, res) => {
+
   res.send(database.users);
 });
 
@@ -78,7 +79,7 @@ app.post("/mychecks", (req, res) => {
   
 });
 
-app.get("/profile/:id", (req, res) => {
+app.get("/:id", (req, res) => {
   const { id } = req.params;
   db.select("*")
     .from("users")
@@ -98,8 +99,8 @@ app.get("/profile/:id", (req, res) => {
   }*/
 });
 
-app.listen(3000, () => {
-  console.log("app is running on port 3000");
+app.listen(process.env.PORT || 3000 , () => {
+  console.log(`app is running on port ${process.env.PORT}`);
 });
 
 app.post("/signin", (req, res) => {
